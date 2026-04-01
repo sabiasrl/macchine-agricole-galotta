@@ -1,0 +1,25 @@
+{
+  "name": "GALOTTA Macchine Agricole",
+  "short_name": "GALOTTA",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8f6f6",
+  "theme_color": "#d40000",
+  "lang": "it-IT",
+  "description": "Vendita e riparazione macchine agricole e attrezzature da giardino a Pietragalla.",
+  "icons": [
+    {
+      "src": "/assets/chainsaw.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/chainsaw.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
