@@ -360,7 +360,15 @@
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>&copy; 2026 GALOTTA Macchine Agricole. Tutti i diritti riservati.</p>
+        <div class="footer-meta">
+          <p>&copy; 2026 GALOTTA Macchine Agricole. Tutti i diritti riservati.</p>
+          <p class="footer-meta__powered">
+            <a href="https://www.sabiasrl.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; color: inherit; text-decoration: none;">
+              <span>Powered by</span>
+              <img src="assets/powered-by.png" alt="Sabia Srl" style="height: 18px; width: auto;" loading="lazy" decoding="async" />
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
 
@@ -404,5 +412,64 @@
         if (event.key === "Escape") closeMenu();
       });
     </script>
-  </body>
+
+
+  <style id="vcard-on-phone-style">
+    .vcard-on-phone {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0.45rem;
+      vertical-align: middle;
+      line-height: 0;
+      border-radius: 999px;
+      overflow: hidden;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      text-decoration: none;
+    }
+
+    .vcard-on-phone__icon {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+  </style>
+
+  <script id="vcard-on-phone-script">
+    (function () {
+      var contactSection = document.querySelector('section[id*="cont" i]');
+      if (!contactSection) return;
+
+      var phoneLink = contactSection.querySelector('a[href^="tel:"]');
+      if (!phoneLink) return;
+
+      var next = phoneLink.nextElementSibling;
+      if (next && next.classList.contains('vcard-on-phone')) return;
+
+      var vcardLink = document.createElement('a');
+      vcardLink.className = 'vcard-on-phone';
+      vcardLink.href = 'assets/contact.vcf';
+      vcardLink.setAttribute('download', 'contact.vcf');
+      vcardLink.setAttribute('type', 'text/vcard');
+      vcardLink.setAttribute('aria-label', 'Aggiungi in rubrica');
+      vcardLink.setAttribute('title', 'Aggiungi in rubrica');
+
+      var icon = document.createElement('img');
+      icon.className = 'vcard-on-phone__icon';
+      icon.src = 'assets/contacts.png';
+      icon.alt = 'Aggiungi in rubrica';
+      icon.loading = 'lazy';
+      icon.decoding = 'async';
+
+      vcardLink.appendChild(icon);
+      phoneLink.insertAdjacentElement('afterend', vcardLink);
+    })();
+  </script>
+
+</body>
 </html>
